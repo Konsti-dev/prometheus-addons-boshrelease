@@ -33,7 +33,7 @@ The release is actually focused on [mongodb](https://www.mongodb.com), but is st
 * get and upload the last release from github
 
   ```shell
-  wget https://github.com/jraverdy-orange/prometheus-addons-boshrelease/releases/download/v2.1.1/prometheus-addons-v3.1.1.tgz
+  wget https://github.com/jraverdy-orange/prometheus-addons-boshrelease/releases/download/v3.1.1/prometheus-addons-v3.1.1.tgz
   
   bosh upload-release prometheus-addons-v3.1.1.tgz
   ```
