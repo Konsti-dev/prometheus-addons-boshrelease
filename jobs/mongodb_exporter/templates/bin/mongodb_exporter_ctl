@@ -65,6 +65,10 @@ case $1 in
       <% if_p('web.metrics_path') do |metrics_path| %> \
       --web.metrics-path="<%= metrics_path %>" \
       <% end %> \
+      --web.ssl-cert-file=":<%= p('web.ssl.cert') %>" \
+      <% end %> \
+      --web.ssl-key-file=":<%= p('web.ssl.key') %>" \
+      <% end %> \
       >>  ${LOG_DIR}/mongodb_exporter.stdout.log \
       2>> ${LOG_DIR}/mongodb_exporter.stderr.log
     ;;

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SSL_DIR=/var/vcap/store/mongodb-exporter/tls
+if [ ! -d $SSL_DIR ]
+  then
+    mkdir -p $SSL_DIR
+fi
+echo "<%= p('web.ssl-cert-file') %>" > $SSL_DIR/exporter_cert.pem
+echo "<%= p('web.ssl-key-file') %>" > $SSL_DIR/exporter_key.pem
+chown -R vcap:vcap $SSL_DIR
+chmod 700 $SSL_DIR
