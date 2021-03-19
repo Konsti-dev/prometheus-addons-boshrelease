@@ -1,13 +1,11 @@
 ---
 name: mongodb_exporter
 
-templates:
-  bin/pre-start.erb: bin/pre-start
-
 packages: 
   - mongodb_exporter
 
 templates:
+  bin/pre-start.erb: bin/pre-start
   bin/mongodb_exporter_ctl: bin/mongodb_exporter_ctl
   js/create_clustermonitor_user.js: js/create_clustermonitor_user.js
   bin/create_clustermonitor_user.sh: bin/create_clustermonitor_user.sh

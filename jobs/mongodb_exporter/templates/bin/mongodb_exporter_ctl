@@ -6,6 +6,7 @@ RUN_DIR=/var/vcap/sys/run/mongodb_exporter
 LOG_DIR=/var/vcap/sys/log/mongodb_exporter
 TMP_DIR=/var/vcap/sys/tmp/mongodb_exporter
 STORE_DIR=/var/vcap/store/mongodb_exporter
+SSL_DIR=/var/vcap/store/mongodb-exporter/tls
 mkdir -p ${RUN_DIR} ${LOG_DIR} ${TMP_DIR} ${STORE_DIR}
 
 PIDFILE=${RUN_DIR}/mongodb_exporter.pid
@@ -65,9 +66,11 @@ case $1 in
       <% if_p('web.metrics_path') do |metrics_path| %> \
       --web.metrics-path="<%= metrics_path %>" \
       <% end %> \
-      --web.ssl-cert-file=":<%= p('web.ssl.cert') %>" \
+      <% if_p('web.ssl-cert-file') do |ssl-cert-file| %> \
+      --web.ssl-cert-file="<%= p('$SSL_DIR/exporter_cert.pem') %>" \
       <% end %> \
-      --web.ssl-key-file=":<%= p('web.ssl.key') %>" \
+      <% if_p('web.ssl-key-file') do |ssl-key-file| %> \
+      --web.ssl-key-file="<%= p('$SSL_DIR/exporter_key.pem') %>" \
       <% end %> \
       >>  ${LOG_DIR}/mongodb_exporter.stdout.log \
       2>> ${LOG_DIR}/mongodb_exporter.stderr.log
