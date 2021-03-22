@@ -55,9 +55,9 @@ properties:
   web.port:
     description: "Port on which to expose metrics and web interface"
     default: 9001
-  web.ssl-cert-file:
+  web.ssl_cert_file:
     description: "Certificate for the ssl"
-  web.ssl-key-file:
+  web.ssl_key_file:
     description: "Key for the Certificate"
   web.metrics_path:
     description: "Path under which to expose metrics"

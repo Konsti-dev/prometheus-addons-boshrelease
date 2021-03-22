@@ -66,11 +66,11 @@ case $1 in
       <% if_p('web.metrics_path') do |metrics_path| %> \
       --web.metrics-path="<%= metrics_path %>" \
       <% end %> \
-      <% if_p('web.ssl-cert-file') do |ssl-cert-file| %> \
-      --web.ssl-cert-file="<%= $SSL_DIR/exporter_cert.pem %>" \
+      <% if_p('web.ssl_cert_file') do |ssl_cert_file| %> \
+      --web.ssl_cert_file="<%= $SSL_DIR/exporter_cert.pem %>" \
       <% end %> \
-      <% if_p('web.ssl-key-file') do |ssl-key-file| %> \
-      --web.ssl-key-file="<%= p('$SSL_DIR/exporter_key.pem') %>" \
+      <% if_p('web.ssl_key_file') do |ssl_key_file| %> \
+      --web.ssl_key_file="<%= p('$SSL_DIR/exporter_key.pem') %>" \
       <% end %> \
       >>  ${LOG_DIR}/mongodb_exporter.stdout.log \
       2>> ${LOG_DIR}/mongodb_exporter.stderr.log
