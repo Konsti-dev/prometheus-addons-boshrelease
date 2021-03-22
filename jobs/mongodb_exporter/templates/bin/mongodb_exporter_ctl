@@ -67,7 +67,7 @@ case $1 in
       --web.metrics-path="<%= metrics_path %>" \
       <% end %> \
       <% if_p('web.ssl-cert-file') do |ssl-cert-file| %> \
-      --web.ssl-cert-file="<%= p('$SSL_DIR/exporter_cert.pem') %>" \
+      --web.ssl-cert-file="<%= $SSL_DIR/exporter_cert.pem %>" \
       <% end %> \
       <% if_p('web.ssl-key-file') do |ssl-key-file| %> \
       --web.ssl-key-file="<%= p('$SSL_DIR/exporter_key.pem') %>" \
